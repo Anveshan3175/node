@@ -1,0 +1,37 @@
+commands:
+---------------------------
+npm init
+npm install express nodemon
+npm start
+npm install mongoose
+npm install dotenv
+npm install body-parser
+npm install cors  // didn't do this
+
+URL:
+---------------------------
+http://localhost:3000/posts
+http://localhost:3000/posts/specific
+
+get specific post
+http://localhost:3000/posts/5d04af2b1985980eaf42eaf4    
+
+Insomnia:
+---------------------------
+post ->
+url    - http://localhost:3000/posts
+method - post
+json   -
+{
+	"title": "THis is fifth post",
+	"description": "my fifth post description"
+}
+
+
+others:
+--------------------------
+
+mlab :
+akunduru4@gmail.com/Nan123du@
+
+
