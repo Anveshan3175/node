@@ -1,1 +1,4 @@
-test
+Introduction
+
+-  As web browsers have become more powerful and are able to handle more complicated calculations, client-side frameworks are starting to become more popular
+-  The client therefore is responsible for processing and running the code locally.
