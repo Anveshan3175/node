@@ -1,4 +1,8 @@
 Introduction
 
--  As web browsers have become more powerful and are able to handle more complicated calculations, client-side frameworks are starting to become more popular
+- With server-side web applications, a web browser must make a request to the server and await a response, in order to complete a task that a user has requested. 
+
+BUT NOW WEB BROWSERS HAVE BECOME POWERFUL.
+
+-  They are able to handle more complicated calculations and client-side frameworks are starting to become more popular
 -  The client therefore is responsible for processing and running the code locally.
