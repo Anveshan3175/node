@@ -21,3 +21,4 @@ Applications become faster
   - The View - It is the visual and interactive web page
   - The Model is responsible for holding the data, and the View is responsible for presenting the data. 
     Think of the ViewModel as the intermediate. It exposes the Model data to assist in maintaining the state of the View.
+    Lot cleaner code . BUt this is again different topic.
