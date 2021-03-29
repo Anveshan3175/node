@@ -22,3 +22,14 @@ Applications become faster
   - The Model is responsible for holding the data, and the View is responsible for presenting the data. 
     Think of the ViewModel as the intermediate. It exposes the Model data to assist in maintaining the state of the View.
     Lot cleaner code . BUt this is again different topic.
+
+
+How we got here to use RequireJS
+  - We are using <script> tags since day one of internet. With <script> tags, you can drop in your libraries
+  - Problem with <script> tags. They tend to pollute the Global scope
+  - The browser has all the global variables floating inside  it. If you drop more <script> , the more variables are added. THEY COLLIDE
+  
+The dependency order needs to be respected
+  - For ex: in here - BackgroundJS needs undescoreJS needed to be loaded before it is loaded.That is a dependancy on underscore for background. So you are 
+    always loading undescore before Background.
+  - Another Ex : if you are working with Jquery plugins, then you need to ensure that Jquery gets loaded before plugins get loaded
