@@ -6,3 +6,13 @@ BUT NOW WEB BROWSERS HAVE BECOME POWERFUL.
 
 -  They are able to handle more complicated calculations and client-side frameworks are starting to become more popular
 -  The client therefore is responsible for processing and running the code locally.
+
+Applications become faster
+ - The round trips have become less
+ 
+ 
+ MVVM (Model-View-ViewModel)
+  - ADF uses MVC model pattern 
+  -  JET uses a different architecture pattern called MVVM
+  - MVVM is common in client-side implementations, due to its two-way data binding between the View and ViewModel, 
+    meaning that any data changes in the ViewModel are sent to the UI components, and any user inputs from the UI are updated in the ViewModel
