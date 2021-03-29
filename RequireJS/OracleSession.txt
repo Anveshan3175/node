@@ -16,3 +16,8 @@ Applications become faster
   -  JET uses a different architecture pattern called MVVM
   - MVVM is common in client-side implementations, due to its two-way data binding between the View and ViewModel, 
     meaning that any data changes in the ViewModel are sent to the UI components, and any user inputs from the UI are updated in the ViewModel
+    
+  - The Model is responsible for accessing the data stores using APIs
+  - The View - It is the visual and interactive web page
+  - The Model is responsible for holding the data, and the View is responsible for presenting the data. 
+    Think of the ViewModel as the intermediate. It exposes the Model data to assist in maintaining the state of the View.
