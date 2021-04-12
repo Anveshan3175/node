@@ -33,3 +33,8 @@ The dependency order needs to be respected
   - For ex: in here - BackgroundJS needs undescoreJS needed to be loaded before it is loaded.That is a dependancy on underscore for background. So you are 
     always loading undescore before Background.
   - Another Ex : if you are working with Jquery plugins, then you need to ensure that Jquery gets loaded before plugins get loaded
+  
+  Require.js can't do anything (including load another script) until it is loaded itself.
+  
+  It is common to use data-main for applications that have only a single entry point, and to put RequireJS' configuration in the module specified in data-main,
+  If you do not use data-main, you must provide an entry point after loading RequireJS
