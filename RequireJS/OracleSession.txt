@@ -44,8 +44,17 @@ The dependency order needs to be respected
   SHOW DEMO DEPENDANCIES
  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  
-  Modules are very cool, because they let you encapsulate all sorts of functionality, and expose this functionality to other JavaScript files, as libraries. They let you create clearly separate and reusable snippets of functionality, each testable on its own.
+  Modules are very cool, because they let you encapsulate all sorts of functionality, and expose this functionality to other JavaScript files, as libraries. They let you  create clearly separate and reusable snippets of functionality, each testable on its own.
   
+  CommonJS really works well on local server because all the files in the server are local to one another. But it doesnot work  if we use browser.Tthe files are all not
+  on local system. We have to make Asyn requests (like to Jquery ) to get files on the other servers. CommonJS load Sysnchrnously but doesn't work Asynchronously.
+  
+  We will not discuss CommonJS here but Let me show Aysn and Sync loading of files .
+  SHOW DEMO ASYNC ans SYNC LOADING
+  
+ So CommonJS doesn't work in browsers  where in files are loaded Asynchronously. As an offshoot, of CommonJS, that emphasizes browser, AMD is developed.
+ AMD stands for Async module def
+ 
   Require.js can't do anything (including load another script) until it is loaded itself.
   
   It is common to use data-main for applications that have only a single entry point, and to put RequireJS' configuration in the module specified in data-main,
