@@ -1,6 +1,9 @@
-Introduction
+SETUP CONTEXT
 
 - With server-side web applications, a web browser must make a request to the server and await a response, in order to complete a task that a user has requested. 
+- The wait times can be large if there is batch process triggered for an action in UI
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Current trends in JS
 
 BUT NOW WEB BROWSERS HAVE BECOME POWERFUL.
 
@@ -9,7 +12,6 @@ BUT NOW WEB BROWSERS HAVE BECOME POWERFUL.
 
 Applications become faster
  - The round trips have become less
- 
  
  MVVM (Model-View-ViewModel)
   - ADF uses MVC model pattern 
@@ -23,6 +25,8 @@ Applications become faster
     Think of the ViewModel as the intermediate. It exposes the Model data to assist in maintaining the state of the View.
     Lot cleaner code . BUt this is again different topic.
 
+Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 How we got here to use RequireJS
   - We are using <script> tags since day one of internet. With <script> tags, you can drop in your libraries
