@@ -36,12 +36,15 @@ As javascript began to increase its role in EAs, the JS codebases increased. Man
   
   SHOW DEMO COLLISION
 
-Modules are very cool, because they let you encapsulate all sorts of functionality, and expose this functionality to other JavaScript files, as libraries. They let you create clearly separate and reusable snippets of functionality, each testable on its own.
-
 The dependency order needs to be respected
   - For ex: in here - BackgroundJS needs undescoreJS needed to be loaded before it is loaded.That is a dependancy on underscore for background. So you are 
     always loading undescore before Background.
   - Another Ex : if you are working with Jquery plugins, then you need to ensure that Jquery gets loaded before plugins get loaded
+  
+  SHOW DEMO DEPENDANCIES
+ --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+  Modules are very cool, because they let you encapsulate all sorts of functionality, and expose this functionality to other JavaScript files, as libraries. They let you create clearly separate and reusable snippets of functionality, each testable on its own.
   
   Require.js can't do anything (including load another script) until it is loaded itself.
   
