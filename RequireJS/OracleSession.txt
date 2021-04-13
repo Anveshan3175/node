@@ -27,9 +27,10 @@ Applications become faster
 
 Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Evolution of RequireJS
 
-How we got here to use RequireJS
-  - We are using <script> tags since day one of internet. With <script> tags, you can drop in your libraries
+As javascript began to increase its role in EAs, the JS codebases increased. Many Frameworks came into picture. And to be able to use those frameworks, we use <SCRIPT> tag - the traditional way. The <SCRIPT> tag has been existent since inception of INternet.
+  - So With <script> tags, you can drop in your libraries - like jQuery underscore,backbone etc
   - Problem with <script> tags. They tend to pollute the Global scope
   - The browser has all the global variables floating inside  it. If you drop more <script> , the more variables are added. THEY COLLIDE
   
