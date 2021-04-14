@@ -34,14 +34,14 @@ As javascript began to increase its role in EAs, the JS codebases increased. Man
   - Problem with <script> tags. They tend to pollute the Global scope
   - The browser has all the global variables floating inside  it. If you drop more <script> , the more variables are added. THEY COLLIDE.
   
-  SHOW DEMO COLLISION
+  **************************** SHOW DEMO COLLISION
 
 The dependency order needs to be respected
   - For ex: in here - BackgroundJS needs undescoreJS needed to be loaded before it is loaded.That is a dependancy on underscore for background. So you are 
     always loading undescore before Background.
   - Another Ex : if you are working with Jquery plugins, then you need to ensure that Jquery gets loaded before plugins get loaded
   
-  SHOW DEMO DEPENDANCIES
+  **************************** SHOW DEMO DEPENDANCIES
  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  Solutions that came up
  
@@ -51,7 +51,8 @@ The dependency order needs to be respected
   on local system. We have to make Asyn requests (like to Jquery ) to get files on the other servers. CommonJS load Sysnchrnously but doesn't work Asynchronously.
   
   We will not discuss CommonJS here but Let me show Aysn and Sync loading of files .
-  SHOW DEMO ASYNC ans SYNC LOADING
+  
+  **************************** SHOW DEMO ASYNC ans SYNC LOADING
   
  So CommonJS doesn't work in browsers  where in files are loaded Asynchronously. As an offshoot, of CommonJS, that emphasizes browser, AMD is developed.
  AMD stands for Async module def.It is spec. AMD takes a lot of what's already in CommonJS and it just adds some additional functionality to help  support some of the
@@ -69,9 +70,13 @@ The dependency order needs to be respected
   
   define() function -> This is the only  API specification mentioned in the AMD spec.(show in specs). We have define function to define modules - with an optionalID, optional Dependancies,
   and a factory function that gets run and wahtever it returns is what your module exports. So we will go through each one individually.
-  
+  -----
   id? -> Unique identifier for the module- which is just like path that you are telling to requireJS where to find  map module.
          But requireJS discourages use of module IDs. That's because , if you need to change this moduleId , say you move your module to a different location,then you need to change this module Id by hand , that can become real pain. So requireJs says, you are developing , don't worry about putting an ID and later on when optimization runs, I will put those IDs. But be aware that there are named modules. 
+ -----
+ dependencies? -> You can define optional list of dependancies in an ARRAY and requireJS will go and automatically inject all those dependancies into your module
+         
+**************************** SHOW DEFINEs FROM OJET APP - appController.js,customer.js  . There are no names for modules. I didn't work on requireJS so much to have an opinion for myself if moduleIds are good or bad. 
   
   Require.js can't do anything (including load another script) until it is loaded itself.
   
