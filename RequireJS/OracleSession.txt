@@ -1,3 +1,6 @@
+Hello everyone, Today I am goind to discuss about RequireJS. It is a Javascript loader framework, currently widely used and coming as OOB for many standard JS frameworks and Toolkits. The reason I am discussing this is , RequireJS comes OOB with OJET and plays all important role of loading modules. 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 SETUP CONTEXT
 
 - With server-side web applications, a web browser must make a request to the server and await a response, in order to complete a task that a user has requested. 
