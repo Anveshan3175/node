@@ -120,7 +120,25 @@ The dependency order needs to be respected
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Precautions
-Dependancy order matters - Whatever you mention in the dependacies ARRAY, they should match in arguments of callback function. So in this example , there are 2 dependancies - jQuery and somejQueryPlugin. The return value from jQuery module is mentioned as argument -$ and there is no return value for somejQueryPlugin. Since there is no value to export from somejQueryPlugin, we need not put in anything there or use "undefined". But it is not needed. So for all depenadant modules that don't export any explict value, they can be left out in the arguments of callback function.
+Dependancy order matters - Whatever you mention in the dependacies ARRAY, they should match in arguments of callback function. So in this example , there are 2 dependancies - jQuery and somejQueryPlugin. The return value from jQuery module is mentioned as argument -$ (anything thing can be used) and there is no return value for somejQueryPlugin. Since there is no value to export from somejQueryPlugin, we need not put in anything there or use "undefined". But it is not needed. So for all depenadant modules that don't export any explict value, they can be left out in the arguments of callback function.
+
+- But if “someJqueryPlugin” is mentioned as first dependency ? The requireJS will load all dependancies mentioned. No issue with that. But callback function maps return value of “someJqueryPlugin” to $ and nothing to refer to jQuery. So when you try to do something with $, thinking it points to jQuery, then it will explode. And return value for jQuery is undefined.
+
+-	Mention all dependencies which have return values in the beginning – maintaining ONE TO ONE Match between listed dependencies and arguments to callback function 
+-	Mention all dependencies which don’t have return value in the last
+--- 
+Don’t Mix  Async And Synchronous Code
+Another thing you will see is , lot of people will mix synchronous and Asynchronous code. This can be confusing esp when people start migrating from projects that use <SCRIPT> tag  to AMD. If you see this code - index.html. The developer here is thinking he can do something with jQuery,widgetand highcharts. Then he wanted to plugin some HighChartsPlugin to do something interesting. But this is totally broken. 
+    This block - require block is totally fine. In the require block, you can wait for things to load and then run the code inside the callback function. 
+    So when index.html is loaded, Browser traverses all code, it sees require block and  Browsers make Aysn requests to all libs - jQuery,Widget and HighCharts. 
+    - Meanwhile, Browser keeps going down parsing stuff and it finds <SCRIPT> for someHighChartPlugin. It loads immediately/syncronously because it is in <SCRIPT> tag.
+    But highChartPlugin has dependancy on highChart which might not be loaded by then becuase of Async nature. So it could potentially blowup the page.
+    - And samething for Widget in <SCRIPT> . The Widget might not be in the scope yet because the Asyn call might not be returned yet.
+    
+    --> HOW can you remedy this ? ??
+    Probably, move the widget stuff into require block, so that widget is available when you actioning on it.
+    And you can move the highChartplugin into another AMD block , which mentione Highchart as dependancy.
+
 
 
 
