@@ -70,7 +70,8 @@ The dependency order needs to be respected
   define() function -> This is the only  API specification mentioned in the AMD spec.(show in specs). We have define function to define modules - with an optionalID, optional Dependancies,
   and a factory function that gets run and wahtever it returns is what your module exports. So we will go through each one individually.
   
-  
+  id? -> Unique identifier for the module- which is just like path that you are telling to requireJS where to find  map module.
+         But requireJS discourages use of module IDs. That's because , if you need to change this moduleId , say you move your module to a different location,then you need to change this module Id by hand , that can become real pain. So requireJs says, you are developing , don't worry about putting an ID and later on when optimization runs, I will put those IDs. But be aware that there are named modules. 
   
   Require.js can't do anything (including load another script) until it is loaded itself.
   
