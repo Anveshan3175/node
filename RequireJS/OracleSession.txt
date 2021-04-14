@@ -34,25 +34,26 @@ As javascript began to increase its role in EAs, the JS codebases increased. Man
   - Problem with <script> tags. They tend to pollute the Global scope
   - The browser has all the global variables floating inside  it. If you drop more <script> , the more variables are added. THEY COLLIDE.
   
-  **************************** SHOW DEMO COLLISION
+  
+**************************** SHOW DEMO COLLISION
 
 The dependency order needs to be respected
   - For ex: in here - BackgroundJS needs undescoreJS needed to be loaded before it is loaded.That is a dependancy on underscore for background. So you are 
     always loading undescore before Background.
   - Another Ex : if you are working with Jquery plugins, then you need to ensure that Jquery gets loaded before plugins get loaded
   
-  **************************** SHOW DEMO DEPENDANCIES
+**************************** SHOW DEMO DEPENDANCIES
  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  Solutions that came up
  
   Modules are very cool, because they let you encapsulate all sorts of functionality, and expose this functionality to other JavaScript files, as libraries. They let you  create clearly separate and reusable snippets of functionality, each testable on its own.
   
   CommonJS really works well on local server because all the files in the server are local to one another. But it doesnot work  if we use browser.Tthe files are all not
-  on local system. We have to make Asyn requests (like to Jquery ) to get files on the other servers. CommonJS load Sysnchrnously but doesn't work Asynchronously.
+  on local system. We have to make Asyn requests (like to Jquery ) to get files on the other servers - like using CDN. CommonJS load Sysnchrnously but doesn't work Asynchronously.
   
   We will not discuss CommonJS here but Let me show Aysn and Sync loading of files .
   
-  **************************** SHOW DEMO ASYNC ans SYNC LOADING
+**************************** SHOW DEMO ASYNC ans SYNC LOADING
   
  So CommonJS doesn't work in browsers  where in files are loaded Asynchronously. As an offshoot, of CommonJS, that emphasizes browser, AMD is developed.
  AMD stands for Async module def.It is spec. AMD takes a lot of what's already in CommonJS and it just adds some additional functionality to help  support some of the
@@ -73,6 +74,8 @@ The dependency order needs to be respected
   -----
   id? -> Unique identifier for the module- which is just like path that you are telling to requireJS where to find  map module.
          But requireJS discourages use of module IDs. That's because , if you need to change this moduleId , say you move your module to a different location,then you need to change this module Id by hand , that can become real pain. So requireJs says, you are developing , don't worry about putting an ID and later on when optimization runs, I will put those IDs. But be aware that there are named modules. 
+         
+**************************** SHOW DEFINEs FROM OJET APP - appController.js,customer.js  . There are no names for modules. I didn't work on requireJS so much to have an opinion for myself if moduleIds are good or bad. 
  -----
  dependencies? -> You can define optional list of dependancies in an ARRAY and requireJS will go and automatically inject all those dependancies into your module
  
@@ -86,11 +89,30 @@ The dependency order needs to be respected
   How requireJS loads JQuery and d3, we will discuss later. For now, just undestand that, you can define your dependancies and requireJS will go and load them for you.
   
   If you want to know whats going on Behind the Scenes - how does it actually loads the dependancies ? When RequeryJS sees you are asking for jQuery,d3 and some other modules, it goes and turns that into bunch of  <Script> tags in the head of the document.And in doing so, it also grabs the dependacies of the dependancies- like if d3 depends on someother JS, RequireJS goes and grabs it as well. It puts all those dependancies into <SCRIPT> tags and toses them into header of view document, waits for all of then to load and then STARTS RUNNING THESE callback function. So it is full lifecycle ->  Finding all the dependancies, putting them on the page and kicking of the callbacks.
-
-         
-**************************** SHOW DEFINEs FROM OJET APP - appController.js,customer.js  . There are no names for modules. I didn't work on requireJS so much to have an opinion for myself if moduleIds are good or bad. 
+ -----
+ factory function
+ Finally there is a factory function. This is required property. You need to specify factory function. It is called once for module.If the factory function returns  anything then that object should be assigned  as the exported value for the module.
+ 
+ So as an example, I am defining a module that returns an object. Let us say module name is foo.js and it has property on object - name. Later on , when someone requires a foo module, they are going to get the object and if they access "name" property, they should see it as "FOO". 
+ 
+ So I emphasize that only if return value is there, it is exported. You don't have to necessarily return anything for your module. For example, JQuery Plugins, they don't return anything at all. They just load in JQuery and then add new function to the jQuery object that was loaded in and there is no return value whatsoever. So not everything is going to return a value. Just keep that in mind.
+ 
+ Things you can do with factory function
+ -- Return an object - We just went over that. It is simple. name property is ROb. method sayHello of the object. And later on in the application, app.js, we can say, hey, I need that person and requireJS loads it, and then calls the callback function and it runs sayHello(). Straightforward.
+ 
+ -- Return a function - Another thing you can do is return a function. Because functions in Javascript are first class citizens.They are objects as well. So you are pass them around. In this case, we have defined a module call sum.js . It returns a function, which takes 2 numbers and alerts the sum of those 2 numbers. and later on in calculator.js you can say, hey I depend on sum. so sum function gets loaded , and then we call sum(2,2) and it alerts 4. This is useful , if you wnat to make little utility methods that you want to pull into your modules. But another important thing you can do is return constructors.
+ 
+ -- Return a constructor - If you are used to class based languages like java,Phyton and you are using constructors, you can just define a constructor function like in person.js here. Elsewhere, in your application, app.js, you can acquire that function ad say Rob equals new Person and the rob.sayHello()
+ 
+ -- Another thing you can make is create private variable and private functions if you like. In here, we are returning object "count" and they have functions but the functions are defined up here. Only the stuff inside the return is returned. All the guys up here - variable counter, getCounter are private and cannot be accessed directly. 
+ 
+ -----
+ There is another part to the AMD specification is require function.  We usually use it to kickoff our application. open
+ **************************** SHOW MAIN.JS OJET APP  and show require function
   
-  Require.js can't do anything (including load another script) until it is loaded itself.
+
+
+Require.js can't do anything (including load another script) until it is loaded itself.
   
   It is common to use data-main for applications that have only a single entry point, and to put RequireJS' configuration in the module specified in data-main,
   If you do not use data-main, you must provide an entry point after loading RequireJS
