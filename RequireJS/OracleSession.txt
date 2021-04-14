@@ -43,6 +43,7 @@ The dependency order needs to be respected
   
   SHOW DEMO DEPENDANCIES
  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Solutions that came up
  
   Modules are very cool, because they let you encapsulate all sorts of functionality, and expose this functionality to other JavaScript files, as libraries. They let you  create clearly separate and reusable snippets of functionality, each testable on its own.
   
@@ -53,8 +54,24 @@ The dependency order needs to be respected
   SHOW DEMO ASYNC ans SYNC LOADING
   
  So CommonJS doesn't work in browsers  where in files are loaded Asynchronously. As an offshoot, of CommonJS, that emphasizes browser, AMD is developed.
- AMD stands for Async module def
+ AMD stands for Async module def.It is spec. AMD takes a lot of what's already in CommonJS and it just adds some additional functionality to help  support some of the
+ workflows that are really common  in the browser around the async file loading.
  
+ There are script loaders like requireJS and CurlJS and HeadJS that implements AMD. RequireJS is probably one of the best known AMD script loader.
+ 
+ Specs for AMD is hosted on Github. It is really short one and easy to read unlike other W3C spec whch are bit intimidating.
+ 
+ https://auth0.com/blog/javascript-module-systems-showdown/
+  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  RequireJS
+  
+  Though we are talking about RequireJS, it is basically, specs from AMD.
+  
+  define() function -> This is the only  API specification mentioned in the AMD spec.(show in specs). We have define function to define modules - with an optionalID, optional Dependancies,
+  and a factory function that gets run and wahtever it returns is what your module exports. So we will go through each one individually.
+  
+  
+  
   Require.js can't do anything (including load another script) until it is loaded itself.
   
   It is common to use data-main for applications that have only a single entry point, and to put RequireJS' configuration in the module specified in data-main,
