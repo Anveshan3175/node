@@ -109,9 +109,34 @@ The dependency order needs to be respected
  -----
  There is another part to the AMD specification is require function.  We usually use it to kickoff our application. open
  **************************** SHOW MAIN.JS OJET APP  and show require function
-  
+ What require function says is, unless you load these dependencies, don’t execute anything here. Another way of saying this is, the  function is callback function.
+ 
+ So we have require and define.  
+ - both require() and define() to load dependencies. Understanding the difference between those two functions is essential to managing dependencies. 
+ The require() function is used to run immediate functionalities, 
+ while define() is used to define modules for use in multiple locations. 
+ 
+ Define is used at all times  and require to kickoff application. 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Precautions
+Dependancy order matters - Whatever you mention in the dependacies ARRAY, they should match in arguments of callback function. So in this example , there are 2 dependancies - jQuery and somejQueryPlugin. The return value from jQuery module is mentioned as argument -$ and there is no return value for somejQueryPlugin. Since there is no value to export from somejQueryPlugin, we need not put in anything there or use "undefined". But it is not needed. So for all depenadant modules that don't export any explict value, they can be left out in the arguments of callback function.
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Require.js can't do anything (including load another script) until it is loaded itself.
   
   It is common to use data-main for applications that have only a single entry point, and to put RequireJS' configuration in the module specified in data-main,
