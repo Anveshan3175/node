@@ -75,6 +75,18 @@ The dependency order needs to be respected
          But requireJS discourages use of module IDs. That's because , if you need to change this moduleId , say you move your module to a different location,then you need to change this module Id by hand , that can become real pain. So requireJs says, you are developing , don't worry about putting an ID and later on when optimization runs, I will put those IDs. But be aware that there are named modules. 
  -----
  dependencies? -> You can define optional list of dependancies in an ARRAY and requireJS will go and automatically inject all those dependancies into your module
+ 
+//jQuery  is assigned to $
+// d3 is assigned to d3
+   define( [‘jQuery’,’d3’], function ( $, d3 )  {
+   });
+   
+  
+  In this case, JQuery is going to find JQuery and d3 and pass them to this function - callback function - and inside your module, you can use Jquery and d3.
+  How requireJS loads JQuery and d3, we will discuss later. For now, just undestand that, you can define your dependancies and requireJS will go and load them for you.
+  
+  If you want to know whats going on Behind the Scenes - how does it actually loads the dependancies ? When RequeryJS sees you are asking for jQuery,d3 and some other modules, it goes and turns that into bunch of  <Script> tags in the head of the document.And in doing so, it also grabs the dependacies of the dependancies- like if d3 depends on someother JS, RequireJS goes and grabs it as well. It puts all those dependancies into <SCRIPT> tags and toses them into header of view document, waits for all of then to load and then STARTS RUNNING THESE callback function. So it is full lifecycle ->  Finding all the dependancies, putting them on the page and kicking of the callbacks.
+
          
 **************************** SHOW DEFINEs FROM OJET APP - appController.js,customer.js  . There are no names for modules. I didn't work on requireJS so much to have an opinion for myself if moduleIds are good or bad. 
   
