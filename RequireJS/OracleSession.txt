@@ -138,7 +138,38 @@ Another thing you will see is , lot of people will mix synchronous and Asynchron
     --> HOW can you remedy this ? ??
     Probably, move the widget stuff into require block, so that widget is available when you actioning on it.
     And you can move the highChartplugin into another AMD block , which mentione Highchart as dependancy.
+--- Beware of Circular Dependancies!
+Another thing to watch out for is circular dependancies. So Mod A depends on MOd B and Mod B depends on Mod A . One tries to load another one, thats going to be a huge problem. You can values UNDEFINED for the values loaded second. There is workaround BUT DON'T GO AROUND IT. Plan your modules carefully. Avoid these situations.
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+CONFIGURATION
+In all the above examples I have mentioned that I need jQuery, Highcharts,Widgets etc. but how does requireJS bring them ?
+There are 3 most important properties  that we deal with when we configure dependancies.
+
+BASEURL
+There is baseurl which tells requireJS where to find  your modules. In here there is "www", "assets" , "js", then sub folders .
+Then there in a configuration file, you say, Hey requireJS, your baseURL is /assests/js". What that means is that , when I ask you for app/main.js or vendor/bootstrap.js, start with baseURL "./assets/js"  and load these modules relative to that. Go to assets then js then vendor then bootstratp.js
+
+PATHS
+If you want to shortcut your URLs that you use frequently, the you can use PATHS property. You still go that baseURL to assets and then use paths property and shorten vendor slash bootstrap.
+ Once you incude path property, your config module will become like this.
+ 
+ ANYTIME A MODULE LISTS bootstrap  AS DEPENDANCY, LOOK FOR IT IN BASEURL (./ASSETS/JS) AND THEN IN PATHS AS (VENDOR/BOOTSTRAP) - RequireJS add ".js" for evey file in confiuration. Dont add yourself. 
+ 
+ From this - require([“./assets/js/vendor/bootstrap”])
+ To        -  require([‘bootstrap’])
+ 
+ So this is what config properties - baseurl and paths do
+ 
+ SHIM
+ This property lets you take libraries that are not written as AMD modules and loads them in correct order.
+ 
+ What do you mean by "libraries that are not written as AMD modules" ??
+ It means they don't have define function and dependancies are not mentioned like in define function
+ 
+ So for instance, highstocks, a variant of highcharts, requires jQUery and it itself is not written as AMD module, so we shim it.
+ We put it in shim directory - define a path to it  '../components/highstock' so that requireJS knows where to find it. So when someone asks for highstock, since it is shimmed, jquery gets loaded first and then highstock gets loaded on page.
+ This is important in case when one shim libraries depend on other shim libraries.Both backboneJS and UndescoreJS are not AMD modules. BackboneJS depends on Underscore and both needs to be shimmed so that requireJS understand that Underscore is loaded first and then Backbone is loaded
 
 
 
