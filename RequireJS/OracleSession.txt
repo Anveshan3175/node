@@ -193,3 +193,46 @@ Require.js can't do anything (including load another script) until it is loaded 
   
   It is common to use data-main for applications that have only a single entry point, and to put RequireJS' configuration in the module specified in data-main,
   If you do not use data-main, you must provide an entry point after loading RequireJS
+  
+  
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+Session 2
+---------
+  
+RequireJS is one of a number of popular open source tools that Oracle has chosen to make use of with Oracle JET rather than building yet another 
+JavaScript framework from the ground up.
+
+Last time we discusses about dependencies between modules.
+Large complex programming problems are now solved by modularization. JavaScript supports modularization through artefacts including functions, classes, 
+and the separation of these artefacts into individual JavaScript files.Because functions can call other functions across these artefacts, 
+this introduces the some concerns around dependency management.
+
+Dependency management is a common issue across programming languages.Within the JavaScript world there is no implicit dependency management mechanism 
+so it's left to us, the developers, to manage this. Some say HTML holds the responsibility of managing the dependencies of the JavaScript but it is 
+a bit odd, both are different written differently and how can HTML understand dependencies within javascript ?
+
+So we have frameworks like RequireJs which does job of  loading javascript files and resolving dependencies. We also discussed that RequireJS implements
+AMD specification.
+- define method
+
+
+Today we will see different types of sample projects built using requireJs
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
