@@ -1,0 +1,15 @@
+Modern JavaScript Bundling
+--------------------------
+Since we're making applications in Front-End JavaScript now, our codebase is much bigger than it used to be. There are many files involved and thus a "build step" is 
+needed to bundle them together. Without this step, an application might have 100s or 1000s of files which would need to be downloaded individually.
+
+One of the main roles of a bundler (like Webpack or Rollup) is to safely concatenate the files together to produce one file (or several files that are split up for
+application reasons). We get to author in many files that are organized for us to understand, but the end-result are build files that we put on production servers.
+
+
+During the build process, plugins can be used to augment the code while it's being bundled. The most common plugin paired with React is
+Babel -- a JavaScript compiler which allows us to write JavaScript one way and Babel will rewrite it to be another way.
+
+The reason we want Babel to rewrite our JavaScript is so that we can do things like use "FUTURE FEATURES" of JavaScript that browsers don't understand yet. 
+Babel will rewrite our code to be compatible with what browsers currently understand. This makes it feel like we're writing future code and 
+we don't have to wait for it to be ready in every browser.
