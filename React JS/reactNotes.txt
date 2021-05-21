@@ -1,4 +1,4 @@
-Modern JavaScript Bundling
+Modern JavaScript Bundling     https://reacttraining.com/blog/jsx-the-confusing-parts/#what-is-jsx
 --------------------------
 Since we're making applications in Front-End JavaScript now, our codebase is much bigger than it used to be. There are many files involved and thus a "build step" is 
 needed to bundle them together. Without this step, an application might have 100s or 1000s of files which would need to be downloaded individually.
