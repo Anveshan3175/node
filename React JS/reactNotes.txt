@@ -13,3 +13,55 @@ Babel -- a JavaScript compiler which allows us to write JavaScript one way and B
 The reason we want Babel to rewrite our JavaScript is so that we can do things like use "FUTURE FEATURES" of JavaScript that browsers don't understand yet. 
 Babel will rewrite our code to be compatible with what browsers currently understand. This makes it feel like we're writing future code and 
 we don't have to wait for it to be ready in every browser.
+
+
+Input and Babel transpilation output
+
+<h1>Hi There</h1>
+React.createElement("h1", null, "Hi There");
+
+
+<h1 color="green">Hi There</h1>
+React.createElement("h1", {
+  color: "green"
+}, "Hi There");
+
+
+<input type="radio" id="gender" >Male</input>
+React.createElement("input", {
+  type: "radio",
+  id: "gender"
+}, "Male");
+
+
+
+
+<table border = "1">
+  <tr>
+    <td>Hi There</td>
+  </tr>
+</table>
+React.createElement("table", {
+  border: "1"
+}, React.createElement("tr", null, React.createElement("td", null, "Hi There")));
+
+
+
+
+<html>
+  <head>
+    	<script src = "jQuery.js" />
+  </head>
+  <body>
+  	<table border = "1">
+  		<tr>
+    		<td>Hi There</td>
+  		</tr>
+	</table>	
+  </body>
+</html>
+React.createElement("html", null, React.createElement("head", null, React.createElement("script", {
+  src: "jQuery.js"
+})), React.createElement("body", null, React.createElement("table", {
+  border: "1"
+}, React.createElement("tr", null, React.createElement("td", null, "Hi There")))));
