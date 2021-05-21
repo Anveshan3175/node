@@ -14,6 +14,21 @@ The reason we want Babel to rewrite our JavaScript is so that we can do things l
 Babel will rewrite our code to be compatible with what browsers currently understand. This makes it feel like we're writing future code and 
 we don't have to wait for it to be ready in every browser.
 
+In JSX we can use curly braces to inject variables:
+
+const message = 'Hello World'
+const myDiv = <div>{message}</div>
+
+
+
+
+
+
+
+
+
+
+
 ------
 Input and Babel transpilation output
 
@@ -60,6 +75,7 @@ React.createElement("html", null, React.createElement("head", null, React.create
   border: "1"
 }, React.createElement("tr", null, React.createElement("td", null, "Hi There")))));
 -------------------------------------------------------------------------------------------------------------------
+
 https://reactjs.org/docs/glossary.html#single-page-application
 https://reactjs.org/docs/hooks-overview.html
 https://reactjs.org/docs/introducing-jsx.html   (Main contents)
