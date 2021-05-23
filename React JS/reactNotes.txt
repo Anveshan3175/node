@@ -19,6 +19,9 @@ In JSX we can use curly braces to inject variables:
 const message = 'Hello World'
 const myDiv = <div>{message}</div>
 
+Create React App
+> npx create-react-app my-first-app
+
 
 
 
