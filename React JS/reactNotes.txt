@@ -21,6 +21,7 @@ const myDiv = <div>{message}</div>
 
 Create React App
 > npx create-react-app my-first-app
+> npm start
 
 
 
