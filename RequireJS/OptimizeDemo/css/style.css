@@ -1,0 +1,6 @@
+@import url('reset.css');
+
+#container{
+    margin: 0;
+    background :red;
+}
