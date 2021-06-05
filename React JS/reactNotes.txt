@@ -25,6 +25,30 @@ Create React App
 > npm install react-router-dom
 
 
+Sample Sign-up-page implementation
+----------------------------------
+Fields in page and details
+1) Username 
+   -> Textbox
+   -> Should be greater than 5 characters
+2) Password
+   -> Password field
+   -> Should have atleast one number
+   -> Should have atleast one special character
+   -> Length should be greater than 8 characters
+3) Confirm Password
+   -> textbox
+   -> Should match Password
+4) Submit Button
+----
+1) Name the file as SignupPageForm.js
+2) Go for Form element, which has  Username,Password , Confirm Password and Submit Button
+3) The component function name is SignupPageForm
+4) Id of Username field is username
+5) Id of Password field is password
+6) Id of Confirm Password is confirmpassword
+7) Id of button is submit
+
 
 
 
