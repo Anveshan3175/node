@@ -27,6 +27,7 @@ Create React App
 > npm view react version
 > npm install --save-dev @wojtekmaj/enzyme-adapter-react-17
 > npm install @testing-library/react react-test-render jest-dom --save-dev
+> npm test
 
 
 Sample Sign-up-page implementation
