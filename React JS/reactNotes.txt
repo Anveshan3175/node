@@ -24,6 +24,9 @@ Create React App
 > npm start
 > npm install react-router-dom
 
+> npm view react version
+> npm install --save-dev @wojtekmaj/enzyme-adapter-react-17
+
 
 Sample Sign-up-page implementation
 ----------------------------------
