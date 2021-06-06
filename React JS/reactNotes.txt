@@ -58,7 +58,13 @@ Fields in page and details
 
 
 
-
+-------------------------------------------------------------------------------
+Getting started with Jest
+1) create project with create-react-app
+2) Installs react-test-renderer
+   > npm install -D react-test-renderer
+3) Copy the command below to install the package for DOM testing in a React app using Jest.
+  > npm install -D @testing-library
 
 
 
