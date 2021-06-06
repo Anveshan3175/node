@@ -49,10 +49,11 @@ Fields in page and details
 1) Name the file as SignupPageForm.js
 2) Go for Form element, which has  Username,Password , Confirm Password and Submit Button
 3) The component function name is SignupPageForm
-4) Id of Username field is username
-5) Id of Password field is password
-6) Id of Confirm Password is confirmpassword
-7) Id of button is submit
+4) Id of SignupPageForm is signupForm
+5) Id of Username field is username
+6) Id of Password field is password
+7) Id of Confirm Password is confirmpassword
+8) Id of button is submit
 
 
 
