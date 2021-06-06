@@ -67,6 +67,7 @@ Getting started with Jest
   > npm install -D @testing-library
 4) Use this command which installs both of them in dev mode
  > npm i --save-dev @testing-library/react react-test-render
+5) npm test is same as npm run test
 
 
 
