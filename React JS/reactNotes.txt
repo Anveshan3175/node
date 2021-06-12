@@ -28,6 +28,7 @@ Create React App
 > npm install --save-dev @wojtekmaj/enzyme-adapter-react-17
 > npm install @testing-library/react react-test-render jest-dom --save-dev
 > npm test
+> npm test App.test.js
 
 
 Sample Sign-up-page implementation
@@ -74,6 +75,9 @@ Getting started with Jest
  > npm i --save-dev @testing-library/react react-test-render
  > npm install -D @testing-library
 
+-- To skip a test ot testsuite add 'x' to describe/test
+xdescribe('......')
+xtest('.....')
 
 
 ------
