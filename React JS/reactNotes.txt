@@ -30,6 +30,9 @@ Create React App
 > npm test
 > npm test App.test.js
 
+To create key for list items
+> npm i uuidv4
+
 
 Sample Sign-up-page implementation
 ----------------------------------
