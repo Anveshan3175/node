@@ -30,7 +30,7 @@ Create React App
 > npm test
 > npm test App.test.js
 
-To create key for list items
+To create key for list items  use UUID  .. It generates unique ids for elements
 > npm i uuidv4
 
 
